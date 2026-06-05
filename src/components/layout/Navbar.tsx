@@ -58,7 +58,6 @@ const navLinks = [
   { name: "Products", href: "/products", hasMegaMenu: true },
   { name: "Services", href: "/services" },
   { name: "Gallery", href: "/gallery" },
-  { name: "360 Views", href: "/360-views" },
   { name: "Blog", href: "/blog" },
   { name: "FAQ", href: "/faq" },
   { name: "About", href: "/about" },

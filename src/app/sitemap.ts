@@ -15,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/products/specialty',
     '/services',
     '/gallery',
-    '/360-views',
     '/blog',
     '/faq',
     '/contact',
