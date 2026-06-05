@@ -87,6 +87,7 @@ export function Navbar() {
   }, [mobileOpen]);
 
   return (
+    <>
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
@@ -246,102 +247,103 @@ export function Navbar() {
           </button>
         </div>
       </nav>
+    </header>
 
-      {/* Mobile Drawer */}
+    {/* Mobile Drawer */}
+    <div
+      className={cn(
+        "fixed inset-0 top-20 z-40 lg:hidden transition-all duration-300",
+        mobileOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+      )}
+    >
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0 bg-black/50"
+        onClick={() => setMobileOpen(false)}
+      />
+
+      {/* Drawer */}
       <div
         className={cn(
-          "fixed inset-0 top-20 z-40 lg:hidden transition-all duration-300",
-          mobileOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          "absolute top-0 right-0 h-full w-[85%] max-w-sm bg-white shadow-2xl transition-transform duration-300 overflow-y-auto",
+          mobileOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        {/* Backdrop */}
-        <div
-          className="absolute inset-0 bg-black/50"
-          onClick={() => setMobileOpen(false)}
-        />
-
-        {/* Drawer */}
-        <div
-          className={cn(
-            "absolute top-0 right-0 h-full w-[85%] max-w-sm bg-white shadow-2xl transition-transform duration-300 overflow-y-auto",
-            mobileOpen ? "translate-x-0" : "translate-x-full"
-          )}
-        >
-          <div className="p-6 space-y-2">
-            {navLinks.map((link) =>
-              link.hasMegaMenu ? (
-                <div key={link.name}>
-                  <button
-                    onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-text-dark font-medium font-[family-name:var(--font-label)] hover:bg-brand-dark/5 transition-colors"
-                  >
-                    Products
-                    <ChevronDown
-                      className={cn(
-                        "w-4 h-4 transition-transform duration-200",
-                        mobileProductsOpen && "rotate-180"
-                      )}
-                    />
-                  </button>
-                  {mobileProductsOpen && (
-                    <div className="ml-4 mt-1 space-y-3 pb-2">
-                      {productCategories.map((cat) => (
-                        <div key={cat.title}>
-                          <Link
-                            href={cat.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="text-xs font-bold text-brand-dark uppercase tracking-wider block px-4 py-1"
-                          >
-                            {cat.title}
-                          </Link>
-                          {cat.items.map((item) => (
-                            <Link
-                              key={item.name}
-                              href={item.href}
-                              onClick={() => setMobileOpen(false)}
-                              className="block px-4 py-1.5 text-sm text-text-mid hover:text-brand-dark transition-colors"
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-4 py-3 rounded-xl text-text-dark font-medium font-[family-name:var(--font-label)] hover:bg-brand-dark/5 transition-colors"
+        <div className="p-6 space-y-2 pb-24">
+          {navLinks.map((link) =>
+            link.hasMegaMenu ? (
+              <div key={link.name}>
+                <button
+                  onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-text-dark font-medium font-[family-name:var(--font-label)] hover:bg-brand-dark/5 transition-colors"
                 >
-                  {link.name}
-                </Link>
-              )
-            )}
-
-            <div className="pt-4 space-y-3 border-t border-gray-100">
+                  Products
+                  <ChevronDown
+                    className={cn(
+                      "w-4 h-4 transition-transform duration-200",
+                      mobileProductsOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+                {mobileProductsOpen && (
+                  <div className="ml-4 mt-1 space-y-3 pb-2">
+                    {productCategories.map((cat) => (
+                      <div key={cat.title}>
+                        <Link
+                          href={cat.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="text-xs font-bold text-brand-dark uppercase tracking-wider block px-4 py-1"
+                        >
+                          {cat.title}
+                        </Link>
+                        {cat.items.map((item) => (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="block px-4 py-1.5 text-sm text-text-mid hover:text-brand-dark transition-colors"
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
               <Link
-                href="/get-quote"
+                key={link.name}
+                href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block w-full text-center px-6 py-3 rounded-full font-bold font-[family-name:var(--font-label)] bg-gradient-to-r from-brand-gold to-brand-amber text-brand-dark"
+                className="block px-4 py-3 rounded-xl text-text-dark font-medium font-[family-name:var(--font-label)] hover:bg-brand-dark/5 transition-colors"
               >
-                Get Free Quote
+                {link.name}
               </Link>
-              <a
-                href="tel:+917668228828"
-                className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full font-medium font-[family-name:var(--font-label)] border border-brand-dark text-brand-dark"
-              >
-                <Phone className="w-4 h-4" />
-                Call Now — +91-7668228828
-              </a>
-            </div>
+            )
+          )}
+
+          <div className="pt-4 space-y-3 border-t border-gray-100">
+            <Link
+              href="/get-quote"
+              onClick={() => setMobileOpen(false)}
+              className="block w-full text-center px-6 py-3 rounded-full font-bold font-[family-name:var(--font-label)] bg-gradient-to-r from-brand-gold to-brand-amber text-brand-dark"
+            >
+              Get Free Quote
+            </Link>
+            <a
+              href="tel:+917668228828"
+              className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full font-medium font-[family-name:var(--font-label)] border border-brand-dark text-brand-dark"
+            >
+              <Phone className="w-4 h-4" />
+              Call Now — +91-7668228828
+            </a>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+    </>
   );
 }
