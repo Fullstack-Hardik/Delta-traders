@@ -54,13 +54,14 @@ export const metadata: Metadata = {
   description:
     "Delta Traders is a leading supplier of uPVC windows and doors in Saharanpur, offering sliding windows, casement windows, French doors, and custom uPVC solutions. Professional installation services for residential and commercial projects.",
   keywords: [
+    "Saharanpur Delta Traders",
+    "Delta Traders",
     "uPVC Windows in Saharanpur",
     "uPVC Doors in Saharanpur",
     "Best uPVC Windows in Saharanpur",
     "uPVC Window Dealer in Saharanpur",
     "uPVC Door Supplier in Saharanpur",
-    "uPVC Window Manufacturer in Saharanpur",
-    "uPVC Door Manufacturer in Saharanpur",
+    "u-pvc near me",
     "uPVC Windows Near Me",
     "uPVC Doors Near Me",
     "Sliding uPVC Windows",
@@ -68,7 +69,13 @@ export const metadata: Metadata = {
     "French uPVC Windows",
     "Soundproof Windows",
     "Energy Efficient Windows",
-    "Delta Traders",
+    "Delta Traders Saharanpur",
+    "Best window supplier near me",
+    "Aluminium Windows Saharanpur",
+    "Glass Partitions Saharanpur",
+    "Commercial uPVC Saharanpur",
+    "Residential uPVC Saharanpur",
+    "Premium quality uPVC doors"
   ],
   openGraph: {
     type: "website",
