@@ -95,6 +95,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "EUBBVSqvAh-T-0AJWsTHaEKcQR7yw1Z93nHbPWv1v7c",
+  },
 };
 
 const localBusinessSchema = {
